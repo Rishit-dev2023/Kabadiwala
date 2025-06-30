@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import recycleIcon from "./assets/recycle.svg";
+import "./LandingPage.css";
 
 const facts = [
   { text: "Recycling 1 ton of paper saves 17 trees", image: "🌳" },
@@ -50,14 +51,16 @@ function LandingPage() {
 
         {/* ✨ Animated Title */}
         <motion.h1
-          className="text-5xl font-bold text-green-800"
-          style={{ fontFamily: "'Titan One', cursive" }}
+          className="titan-one-regular"
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0.7, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
           Kabadiwala
         </motion.h1>
+        <span className="kabadiwala-tagline">
+          Purani Cheezein... <i>Nayi Soch!</i>
+        </span>
 
         {/* 💡 Fact Block */}
         <div className="relative w-full max-w-xl h-40 overflow-hidden">
@@ -87,9 +90,11 @@ function LandingPage() {
           </AnimatePresence>
         </div>
 
-        <p className="text-sm text-gray-600 italic">
-          Just a moment… Preparing your experience!
-        </p>
+        <div className="loading-text">
+          Loading<span className="dot dot-1">.</span>
+          <span className="dot dot-2">.</span>
+          <span className="dot dot-3">.</span>
+        </div>
       </motion.div>
     </div>
   );
